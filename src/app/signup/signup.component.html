@@ -1,0 +1,50 @@
+<section>
+        <mat-card>
+                
+    <form action="" [formGroup]="CreateAccount" autocomplete="off" novalidate (ngSubmit)="userForm(CreateAccount.value)">
+ 
+
+            <p style="text-align: center;">SignUpForm</p>
+            <mat-form-field>
+                    <input type="text" matInput placeholder="email" formControlName="email" required>
+                    <mat-error *ngIf="hasError('email', 'required')">Email is required.</mat-error>
+                   
+                  
+                  </mat-form-field>
+                  <mat-form-field>
+                        <input matInput placeholder="password" [type]="hide ? 'password' : 'password'" formControleName="pass">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="hasError('pass', 'required')">password is required.</mat-error>
+                        <mat-error *ngIf="hasError('pass', 'minlength')">minlength 8.</mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                            <input matInput placeholder="confirm password" [type]="hide ? 'password' : 'text'">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                          <div id="btn">
+
+                   
+                          
+
+                            
+                                <button id="reset" mat-raised-button color="warn" type="reset">Reset</button>
+                                <button id="submit" mat-raised-button  type="submit">GoForSubmit</button>
+                          
+                 
+                        </div>
+                           
+                         
+       
+    </form>
+    <hr>
+    <p style="text-align: center;">SignInWith</p>
+    <div style="text-align: center;">
+    <button mat-fab color="accent" (click)='login()'>Google</button>
+</div>
+
+</mat-card>
+</section>

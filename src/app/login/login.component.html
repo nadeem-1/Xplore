@@ -1,0 +1,34 @@
+<section>
+        <mat-card>
+    <form action="" FormGroup="loginForm">
+ 
+
+            <p style="text-align: center;">SignIn</p>
+            <mat-form-field>
+                    <input matInput placeholder="email" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <input matInput placeholder="password" [type]="hide ? 'password' : 'password'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
+                  
+                          <div id="btn">
+
+                         
+                          <button id="reset" mat-raised-button color="warn">Reset</button>
+                          <button id="submit" mat-raised-button >GoForSubmit</button>
+                        </div>
+                         
+       
+    </form>
+    <hr>
+    <p style="text-align: center;">SignInWith</p>
+    <div style="text-align: center;">
+    <button mat-fab color="accent" (click)='login()'>Google</button>
+</div>
+
+</mat-card>
+</section>

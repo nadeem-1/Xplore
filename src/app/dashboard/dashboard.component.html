@@ -1,0 +1,29 @@
+
+<div >
+  <section>
+    <mat-accordion>
+  
+    
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+         create A post:
+        </mat-expansion-panel-header>
+        <div>
+          <input type="file" (change)='uploading($event)'>
+         <div [hidden]="!uploadPercent"> <mat-progress-bar mode="determinate" value="{{uploadPercent |async}}"></mat-progress-bar></div>
+  
+        </div>
+        <div> <img [src]="uploadImage ||'//:0'" alt="image" with="100" height="100"></div>
+        <mat-form-field style="width:100%">
+          <input matInput placeholder="post_title" [(ngModel)]='title' >
+        </mat-form-field><br>
+        <mat-form-field style="width:100%" >
+          <textarea matInput placeholder="post_body" rows="10" [(ngModel)]='body' ></textarea>
+        </mat-form-field><br>
+        <button mat-raised-button (click)='createpost()' [disabled]='!body||!title'>{{bottomText}}</button>
+    
+      </mat-expansion-panel>
+    
+    </mat-accordion>
+  </section>
+</div>

@@ -1,0 +1,19 @@
+#post{
+    display:grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-auto-rows: auto;
+    margin: 0;
+  max-width: 98%;
+  margin-left: 1%;
+  height: 200px;
+
+}
+.card {
+  margin: 10px 0;
+ 
+  
+}
+mat-card-header{
+    cursor: pointer;
+}

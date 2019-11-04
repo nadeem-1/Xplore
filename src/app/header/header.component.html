@@ -1,0 +1,31 @@
+<header>
+    <mat-toolbar >
+        <span style="font-size: 40px"> X</span><span>plore</span>
+        <span class="space"></span>
+        <div *ngIf="!(user | async)?.uid">
+        <a routerLink='/login' mat-button>sign in</a>  
+        <a routerLink="/signup" mat-button>join</a> 
+       </div>
+        <div *ngIf="user | async as user;">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="with a menu">
+                        <mat-icon>menu</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                          <mat-icon><img height="25px" width="25px" style="border-radius:50%" src="{{user.photoURL}}"></mat-icon>
+                          <span>{{user.displayName}}</span>
+                        </button>
+                        <button mat-menu-item routerLink="/dashboard">
+                          <mat-icon>dashboard</mat-icon>
+                          <span>Dashboard</span>
+                        </button>
+                        <button mat-menu-item>
+                          <mat-icon>notifications_off</mat-icon>
+                          <span>Disable alerts</span>
+                        </button>
+                      </mat-menu>
+            <a mat-button (click)="logout()">logout</a></div>
+        </mat-toolbar>
+</header>
+
+

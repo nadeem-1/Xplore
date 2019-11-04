@@ -1,0 +1,38 @@
+
+   
+<div class="container">
+        
+    <div class="row">
+            <mat-card>
+                    <a mat-button routerLinkActive="active" routerLink="/livenews"  >Live News</a>
+                    <a mat-button routerLinkActive="active"  routerLink="/technology" >Technology</a>
+                    <a mat-button routerLinkActive="active" routerLink="/sports"  >Sports</a>
+                    <a mat-button routerLinkActive="active" routerLink="/science"  >Science </a>
+                  </mat-card>
+            
+    </div>
+    <div class="row1" >
+   
+        <div class="main">
+
+            <ul class="cards">
+
+              <li class="cards_item" *ngFor="let a of liveNews.articles;let i = index">
+                <div class="card">
+                
+                  <div class="card_image"><img  src="{{a.urlToImage}}"></div>
+                  <div class="card_content">
+                    <h2 class="card_title"> {{a.title}}</h2>
+                    <p class="card_text"></p>
+                    <a class="btn card_btn"  href="{{a.url}}">Read More</a>
+                  </div>
+                </div>
+              </li>
+             
+            </ul>
+          </div>
+          
+          
+    </div>
+</div>
+

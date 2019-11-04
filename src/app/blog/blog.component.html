@@ -1,0 +1,26 @@
+<section id="post">
+        <mat-card class="card" *ngFor="let post of posts | async"  >
+          <mat-card-header routerLink="{{post.id}}">
+            <div mat-card-avatar class="example-header-image"[style.backgroundImage]="'url('+ post.image +')'"
+            ></div>
+            <mat-card-title >{{post.title}}</mat-card-title>
+            <mat-card-subtitle>Author:{{post.author}}<br> {{post.published.toDate() | date: 'fullDate'}}</mat-card-subtitle>
+          </mat-card-header>
+          <!--<img mat-card-image src="{{item.uploadImage}}">-->
+          <mat-card-content>
+            <p style="height: 100px;">{{post.body}}</p>
+          </mat-card-content>
+          <mat-card-actions *ngIf="auth.currentUserId=== post.authorId"  >
+        
+            <button  mat-icon-button (click)="delete(post.id)">
+              <mat-icon >delete</mat-icon>
+            </button>
+            <button  mat-icon-button (click)="update(post.id)">
+                    <mat-icon >edit</mat-icon>
+                  </button>
+           
+          </mat-card-actions>
+        </mat-card>
+        
+        
+          </section>
